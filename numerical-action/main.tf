@@ -1,6 +1,6 @@
 resource "null_resource" "numerical_action" {
   triggers = {
-    numerical_input = var.numerical_input
+    numerical_input = tostring(var.numerical_input)
   }
 
   provisioner "local-exec" {
