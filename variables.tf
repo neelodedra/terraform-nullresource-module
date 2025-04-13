@@ -3,7 +3,7 @@ variable "numerical_input" {
   description = "A numerical input value."
 
   validation {
-    condition = can(tonumber(self))
-    error_message = "The 'numerical_input' value must be a number. (Module Version 2.0.0)"
+    condition     = can(regex("^-?[0-9]+(\\.[0-9]+)?$", tostring(var.numerical_input)))
+    error_message = "You must provide a numeric value (integer or float)."
   }
 }
